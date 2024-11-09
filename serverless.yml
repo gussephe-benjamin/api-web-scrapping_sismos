@@ -4,18 +4,17 @@ service: api-web-scraping
 provider:
   name: aws
   runtime: python3.12
-  # Default memory size for functions (default: 1024MB)
   memorySize: 1024
   timeout: 30
   iam:
     role: arn:aws:iam::730335337301:role/LabRole
 
 functions:
-  scrape_table:
-    handler: scrap_table.lambda_handler  # Asegúrarse de que el nombre del archivo y la función coincidan
+  scraping_lambda:
+    handler: scraping_lambda.lambda_handler  # Asegúrate de que el nombre del archivo y la función coincidan
     package:
       include:
-        - ./**  # Incluir todo el contenido del directorio
+        - ./**  # Incluye todo el contenido del directorio
     events:
       - http:
           path: /scrape/table
@@ -25,10 +24,10 @@ functions:
 
 resources:
   Resources:
-    TablaWebScrapping:
+    TablaScrapingDynamoDB:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: TablaWebScrapping
+        TableName: TablaScrapingDynamoDB
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
