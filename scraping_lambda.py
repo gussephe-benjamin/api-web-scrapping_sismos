@@ -6,7 +6,7 @@ from uuid import uuid4
 
 # Inicializar el recurso de DynamoDB
 dynamodb = boto3.resource('dynamodb')
-table_name = "TablaScrapingDynamoDB"  # Debe coincidir con el nombre de la tabla en serverless.yml
+table_name = "TablaScrapingDynamoDBNueva"  # Nombre actualizado para la nueva tabla DynamoDB
 
 def lambda_handler(event, context):
     url = "https://ejemplo.com"  # Cambia esto a la URL que deseas scrapear
@@ -46,7 +46,7 @@ def lambda_handler(event, context):
 
         return {
             'statusCode': 200,
-            'body': json.dumps({"message": "Datos almacenados en DynamoDB exitosamente"})
+            'body': json.dumps({"message": "Datos almacenados en TablaScrapingDynamoDBNueva exitosamente"})
         }
 
     except requests.RequestException as e:
