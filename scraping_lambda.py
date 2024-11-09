@@ -9,7 +9,7 @@ dynamodb = boto3.resource('dynamodb')
 table_name = "TablaScrapingDynamoDBNueva"  # Nombre actualizado para la nueva tabla DynamoDB
 
 def lambda_handler(event, context):
-    url = "https://ejemplo.com"  # Cambia esto a la URL que deseas scrapear
+    url = "https://ultimosismo.igp.gob.pe/ultimo-sismo/sismos-reportados"  # Cambia esto a la URL que deseas scrapear
 
     try:
         # 1. Realizar la solicitud HTTP GET
