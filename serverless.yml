@@ -24,10 +24,10 @@ functions:
 
 resources:
   Resources:
-    TablaScrapingDynamoDB:
+    TablaScrapingDynamoDBNueva:  # Nombre único para la nueva tabla
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: TablaScrapingDynamoDB
+        TableName: TablaScrapingDynamoDBNueva  # Nombre específico para evitar colisiones
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
